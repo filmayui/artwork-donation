@@ -1,0 +1,138 @@
+<%= render "shared/second-header" %>
+
+<div id="artist-show-background-image">
+
+<div class="artwork-page-title">ARTWORK DETAIL</div>
+
+<div class="artwork-detail">
+  <div>
+  <%= image_tag(@artwork.image, class: "artwork-detail-img") if @artwork.image.attached? %>
+  <div>
+  
+  <div class="star">
+  <div id="artwork" data-id=<%= @artwork.id %> <% if nil != Favorite.find_by(user_id: current_user.id, artwork_id: @artwork.id) %>data-check="true"<% end %> >
+    <%= image_tag "star.png", class:"star-icon" %>
+  </div>
+    お気に入り登録数 <span id="count"><%= @favoriteCount %></span>
+    <% if user_signed_in? && current_user.id == @artwork.artist.user.id %>
+      <%= link_to '削除', artwork_path(@artwork.id), method: :delete, class:'artwork-show-btn' %>
+    <% end %>
+    <% if user_signed_in? && current_user.id == @artwork.artist.user.id && nil == Order.find_by(artwork_id: @artwork.id) %>
+      <%= link_to '作品情報の編集', edit_artwork_path(@artwork.id), method: :get, class:"artwork-show-btn" %>
+    <% end %>
+  </div>
+
+    <% if nil != Order.find_by(artwork_id: @artwork.id) %>
+        <div class="artwork-content-non">Sold Out!!</div>
+    <% elsif @artist.donation_project.current_amount >= @artist.donation_project.target_amount %>
+        <div class="artwork-project-non">この作品のアーティストが支援しているプロジェクトは終了しています。</div>
+    <% elsif nil == Order.find_by(artwork_id: @artwork.id) && user_signed_in? && current_user.id != @artwork.artist.user.id %>
+      <span class="artwork-donation-call">この作品を購入すると<%= @artist.donation_project.project_name %>に¥<%= @donationPrice %>円寄付されます。</span>
+      <br>
+      <%= link_to '購入画面に進む', artwork_orders_path(@artwork.id) ,class:"artwork-show-btn"%>
+    <% end %>
+
+  </div>
+  </div>
+  <div>
+    <div class="artwork-detail-content">
+      <div class="artwork-detail-text">タイトル</div>
+      <div class="artwork-title-textarea"><%= @artwork.title %></div>
+    </div>
+
+    <div class="artwork-detail-content">
+      <div class="artwork-detail-text">アーティスト名</div>
+      <div class="artwork-artist-name-textarea"><%= link_to @artwork.artist.artist_name, artist_path(@artwork.artist.id), method: :get, class: "artwork-artist-btn" %></div>
+    </div>
+
+    <div class="artwork-detail-content">
+      <div class="artwork-detail-text">作品の説明</div>
+      <div class="artwork-text-textarea"><%= @artwork.text %></div>
+    </div>
+
+    <div class="artwork-detail-content">
+      <div class="artwork-detail-text">サイズ</div>
+      <div class="artwork-size-textarea"><%= @artwork.size %></div>
+    </div>
+
+    <div class="artwork-detail-content">
+      <div class="artwork-detail-text">設定金額</div>
+      <div class="artwork-price-textarea"><%= @artwork.price %></div>
+    </div>
+
+    <div class="artwork-detail-content">
+      <div class="artwork-detail-text">カテゴリー</div>
+      <div class="artwork-category-textarea"><%= @artwork.category.name %></div>
+    </div>
+
+    <div class="artwork-detail-content">
+      <div class="artwork-detail-text">メインカラー</div>
+      <div class="artwork-main-color-textarea"><%= @artwork.main_color.name %></div>
+    </div>
+
+    <div class="artwork-detail-content">
+      <div class="artwork-detail-text">モチーフ</div>
+      <div class="artwork-motif-textarea"><%= @artwork.motif.name %></div>
+    </div>
+
+    <div class="artwork-detail-content">
+      <div class="artwork-detail-text">フィーリング</div>
+      <div class="artwork-feeling-textarea"><%= @artwork.feeling.name %></div>
+    </div>
+
+    <div class="artwork-detail-content">
+      <div class="artwork-detail-text">発送元の地域</div>
+      <div class="artwork-prefecture-textarea"><%= @artwork.prefecture.name %></div>
+    </div>
+
+    <div class="artwork-detail-content">
+      <div class="artwork-detail-text">発送までの日数</div>
+      <div class="artwork-scheduled-delivery-textarea"><%= @artwork.scheduled_delivery.name %></div>
+    </div>
+  </div>
+</div>
+
+<div class="comment-area">
+  <div class="comment-form">
+    <% if user_signed_in? %>
+      <%= form_with model: [@artwork, @comment], local: true do |f| %>
+
+      <%= render 'shared/error_messages', model: @comment %>
+
+        <div class="field">
+          <%= f.label :text, "コメント" %><br />
+          <%= f.text_field :text %>
+          <%= f.submit "送信する" %>
+        </div>
+      <% end %> 
+    <% end %>
+  </div>
+
+  <ul class="comments_lists">
+    
+    <div id="comments">
+    <% @comments.reverse_each do |comment| %>
+      <li class="comments_list">
+        <span class="comment-people">
+          <% if nil == Artist.find_by(user_id: comment.user.id) %>
+          <%= comment.user.nickname %>
+          <% else %>
+          <%= link_to comment.user.artist.artist_name, artist_path(comment.user.artist.id), class:"comment-btn" %>
+          <% end %>
+        </span>
+        <span class="comment-text">
+          <%= comment.text %>
+        </span>
+        <span class="comment-created">
+          <%= l comment.created_at %>
+        </span>
+        <br>
+      </li>
+    <% end %>
+    </div>
+  </ul>
+</div>
+
+</div>
+          
+<%= render "shared/footer" %>

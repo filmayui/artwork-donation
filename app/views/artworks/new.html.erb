@@ -1,0 +1,103 @@
+<%= render "shared/second-header" %>
+
+<div id="artwork-new-background-image">
+
+  <div class="artwork-contents">
+    <div class="svgSample1">
+    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+      <defs>
+        <text dy="0.4em" id="outTextx">作品情報登録</text>
+      </defs>
+      <use x="50%" y="50%" xlink:href="#outTextx"></use>
+      <use x="50%" y="50%" xlink:href="#outTextx"></use>
+    </svg>
+    </div>
+
+    作品情報を入力しましょう。作品が購入された場合、指定している支援プロジェクトに売り上げ金額の90%が寄付されます。
+
+    <%= form_with model: @artwork, local: true do |f| %>
+
+    <%= render 'shared/error_messages', model: @artwork %>
+
+    <div class="field">
+    <%= f.label :image, "作品写真" , class:"label"%><br />
+    <%= f.file_field :image, id:"content-image" %>
+    </div>
+
+    <div id="image-list"></div>
+
+    <div class="field">
+    <%= f.label :title, "作品タイトル" , class:"label"%><br />
+    <%= f.text_area :title, class:"title-textarea", id:"item-name", placeholder:"作品タイトル（必須 15文字まで)", maxlength:"15" %>
+    </div>
+
+    <div class="field">
+    <%= f.label :text, "作品の説明" , class:"label"%><br />
+    <%= f.text_area :text, class:"text-textarea", id:"item-name", placeholder:"作品の説明（必須 150文字まで)", maxlength:"150" %>
+    </div>
+
+    <div class="field">
+    <%= f.label :size, "サイズ" , class:"label"%><br />
+    <%= f.text_field :size, class:"size-textarea", id:"item-name", placeholder:"例) h240mm × w120mm", maxlength:"15" %>
+    </div>
+
+    <div class="field">
+    <%= f.label :category_id, "カテゴリー" , class:"label"%><br />
+    <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"artwork-category"}) %>
+    </div>
+
+    <div class="field">
+    <%= f.label :main_color_id, "メインカラー" , class:"label"%><br />
+    <%= f.collection_select(:main_color_id, MainColor.all, :id, :name, {}, {class:"select-box", id:"artwork-category"}) %>
+    </div>
+
+    <div class="field">
+    <%= f.label :motif_id, "モチーフ" , class:"label"%><br />
+    <%= f.collection_select(:motif_id, Motif.all, :id, :name, {}, {class:"select-box", id:"artwork-category"}) %>
+    </div>
+
+    <div class="field">
+    <%= f.label :feeling_id, "フィーリング" , class:"label"%><br />
+    <%= f.collection_select(:feeling_id, Feeling.all, :id, :name, {}, {class:"select-box", id:"artwork-category"}) %>
+    </div>
+
+    <div class="field">
+    <%= f.label :prefecture_id, "発送元の地域" , class:"label"%><br />
+    <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"artwork-category"}) %>
+    </div>
+
+    <div class="field">
+    <%= f.label :scheduled_delivery_id, "発送日の目安" , class:"label"%><br />
+    <%= f.collection_select(:scheduled_delivery_id, ScheduledDelivery.all, :id, :name, {}, {class:"select-box", id:"artwork-category"}) %>
+    </div>
+
+    <div class="field">
+      <%= f.label :price, "設定価格" , class:"label"%><br />
+      <div class="weight-bold-text question-text">
+        <span class="sell-price">(¥500〜9,999,999)</span>
+      </div>
+      <%= f.text_field :price, class:"price-textarea", id:"artwork-price", placeholder:"例）500" %>
+    </div>
+    <div class="sell-price">
+      <div class="price-content">
+        <span>販売手数料 (10%)</span>
+        <span>
+          <span id='add-tax-price'></span>円
+        </span>
+      </div>
+      <div class="price-content">
+        <span><%= @donation_project.project_name %>への寄付金額</span>
+        <span>
+          <span id='donation'></span>円
+      </div>
+      </span>
+    </div>
+        
+      <%= f.submit "登録する" ,class:"submit-btn" %>
+
+    <% end %>
+  </div>
+
+</div>
+
+<%= render "shared/footer" %>

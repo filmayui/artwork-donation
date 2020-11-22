@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_22_200010) do
+ActiveRecord::Schema.define(version: 2020_11_22_200658) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -47,6 +47,23 @@ ActiveRecord::Schema.define(version: 2020_11_22_200010) do
     t.index ["user_id"], name: "index_artists_on_user_id"
   end
 
+  create_table "artworks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "text", null: false
+    t.string "size", null: false
+    t.integer "price", null: false
+    t.integer "category_id", null: false
+    t.integer "main_color_id", null: false
+    t.integer "motif_id", null: false
+    t.integer "feeling_id", null: false
+    t.integer "prefecture_id", null: false
+    t.integer "scheduled_delivery_id", null: false
+    t.bigint "artist_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["artist_id"], name: "index_artworks_on_artist_id"
+  end
+
   create_table "donation_projects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "project_name", null: false
     t.text "text", null: false
@@ -78,4 +95,5 @@ ActiveRecord::Schema.define(version: 2020_11_22_200010) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "artists", "donation_projects"
   add_foreign_key "artists", "users"
+  add_foreign_key "artworks", "artists"
 end

@@ -16,5 +16,11 @@ Rails.application.routes.draw do
       post 'search'
     end
   end
+
+  resources :artworks do
+    collection do
+      get 'search'
+    end
+  end
   
 end

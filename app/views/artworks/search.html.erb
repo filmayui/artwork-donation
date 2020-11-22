@@ -1,0 +1,34 @@
+<%= render "shared/header" %>
+
+<div id="artwork-search-background-image">
+
+<div class="page-title">ARTWORKS SEARCH RESULT</div>
+
+<div class="grid">
+  <% if @results.present? %>
+    <% @results.each do |artwork| %>
+      <div class="artwork"> 
+    
+      <%= link_to image_tag(artwork.image, class: "artwork-img"), artwork_path(artwork.id) if artwork.image.attached? %>
+
+      <p class="property">title: <span class="bold"><%= artwork.title %></span></p>
+      <p class="property">¥ <span class="bold"><%= artwork.price %></span></p>
+      <p class="property">favorite: <span class="bold"><%= Favorite.where(artwork_id: artwork.id).count %></span></p>
+      <% if nil != Order.find_by(artwork_id: artwork.id)%>
+          <div class="content-non">Sold Out!!</div>
+      <% end %>
+      </div>
+    <% end %>
+  <% else %>
+    <div class="content-non">該当する検索結果はありません。</div>
+  <% end %>
+</div>
+
+</div>
+
+<%= render "shared/footer" %>
+
+
+
+
+
