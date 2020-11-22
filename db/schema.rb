@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_22_200658) do
+ActiveRecord::Schema.define(version: 2020_11_22_202600) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -64,6 +64,16 @@ ActiveRecord::Schema.define(version: 2020_11_22_200658) do
     t.index ["artist_id"], name: "index_artworks_on_artist_id"
   end
 
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "text", null: false
+    t.bigint "user_id", null: false
+    t.bigint "artwork_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["artwork_id"], name: "index_comments_on_artwork_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
   create_table "donation_projects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "project_name", null: false
     t.text "text", null: false
@@ -96,4 +106,6 @@ ActiveRecord::Schema.define(version: 2020_11_22_200658) do
   add_foreign_key "artists", "donation_projects"
   add_foreign_key "artists", "users"
   add_foreign_key "artworks", "artists"
+  add_foreign_key "comments", "artworks"
+  add_foreign_key "comments", "users"
 end
