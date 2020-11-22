@@ -10,5 +10,11 @@ Rails.application.routes.draw do
       get 'favorite'
     end
   end
+
+  resources :artists, only: [:index, :new, :create, :edit, :update, :show] do
+    collection do
+      post 'search'
+    end
+  end
   
 end
