@@ -1,0 +1,50 @@
+<%= render "shared/second-header" %>
+
+<div id="donation-project-new-background-image">
+
+  <div class="donation-project-contents">
+    <div class="svgSample1">
+    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+      <defs>
+        <text dy="0.4em" id="outTextx">支援プロジェクト登録</text>
+      </defs>
+      <use x="50%" y="50%" xlink:href="#outTextx"></use>
+      <use x="50%" y="50%" xlink:href="#outTextx"></use>
+    </svg>
+    </div>
+
+    編集不可
+
+    <%= form_with model: @donation_project, local: true do |f| %>
+
+    <%= render 'shared/error_messages', model: @donation_project %>
+
+    <div class="field">
+    <%= f.label :image, "プロジェクト写真" , class:"label"%><br />
+    <%= f.file_field :image, id:"content-image" %>
+    <div id="image-list"></div>
+    </div>
+
+    <div class="field">
+    <%= f.label :project_name, "プロジェクト名" , class:"label"%><br />
+    <%= f.text_field :project_name, class:"project-name-textarea", placeholder:"プロジェクト名 (必須 20文字まで)", maxlength:"20"  %>
+    </div>
+
+    <div class="field">
+    <%= f.label :text, "プロジェクトの概要" , class:"label"%><br />
+    <%= f.text_area :text, class:"text-textarea", placeholder:"プロジェクトの概要 (必須 150文字まで)", maxlength:"300"  %>
+    </div>
+
+    <div class="field">
+    <%= f.label :target_amount, "目標金額" , class:"label"%><br />
+    <%= f.text_field :target_amount, class:"target-amount-textarea", placeholder:"例）500000" %>
+    </div>
+
+    <%= f.submit "登録する" ,class:"submit-btn" %>
+
+    <% end %>
+  </div>
+
+</div>
+
+<%= render "shared/footer" %>
