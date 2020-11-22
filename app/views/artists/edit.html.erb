@@ -1,0 +1,65 @@
+<%= render "shared/second-header" %>
+
+<div id="artist-edit-background-image">
+
+  <div class="artist-contents">
+    <div class="svgSample1">
+    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+      <defs>
+        <text dy="0.4em" id="outTextx">アーティスト情報編集</text>
+      </defs>
+      <use x="50%" y="50%" xlink:href="#outTextx"></use>
+      <use x="50%" y="50%" xlink:href="#outTextx"></use>
+    </svg>
+    </div>
+
+    アーティスト情報を編集しましょう。自分の作品に興味を持ってもらるようなプロフィールを作成しましょう。
+
+  <%= form_with model: @artist, local: true do |f| %>
+
+    <%= render 'shared/error_messages', model: @artist %>
+
+    <div class="field">
+    <%= f.label :image, "アーティスト写真", class:"label" %><br />
+    <%= f.file_field :image, id:"content-image" %>
+    <div id="image-list"></div>
+    </div>
+
+    <div class="field">
+    <%= f.label :donation_project_id, "支援プロジェクト名", class:"label" %><br />
+    <%= f.collection_select :donation_project_id, DonationProject.where("current_amount < target_amount"), :id, :project_name, include_blank: '--' %>
+    </div>
+
+    <div class="field">
+    <%= f.label :artist_name, "アーティスト名", class:"label" %><br />
+    <%= f.text_field :artist_name, class:"artist-name-textarea", placeholder:"例) 岡本太郎", maxlength:"7" %>
+    </div>
+
+    <div class="field">
+    <%= f.label :affiliation, "所属", class:"label" %><br />
+    <%= f.text_field :affiliation, class:"affiliation-textarea", placeholder:"例) 現代芸術アトリエ", maxlength:"10" %>
+    </div>
+
+    <div class="field">
+    <%= f.label :personal_history, "経緯・経歴", class:"label" %><br />
+    <%= f.text_area :personal_history, class:"personal-history-textarea", placeholder:"例) 趣味程度ですが、子供の頃から絵を描くことが好きで大人になった今でも描き続けています", maxlength:"150" %>
+    </div>
+
+    <div class="field">
+    <%= f.label :reason_for_support_activities, "支援活動に興味をもった理由", class:"label" %><br />
+    <%= f.text_area :reason_for_support_activities, class:"reason-for-support-activities-textarea", placeholder:"例) 自分の作った作品を通して誰かの助けになれることはとてもすばらしいことです", maxlength:"150" %>
+    </div>
+
+    <div class="field">
+    <%= f.label :artist_message, "メッセージ", class:"label" %><br />
+    <%= f.text_area :artist_message, class:"artist-message-textarea", placeholder:"例) 世界中に支援の輪を広げていきましょう！", maxlength:"150" %>
+    </div>
+
+    <%= f.submit "変更する" ,class:"submit-btn" %>
+
+  <% end %>
+  </div>
+
+</div>
+
+<%= render "shared/footer" %>

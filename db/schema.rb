@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_22_194119) do
+ActiveRecord::Schema.define(version: 2020_11_22_195236) do
+
+  create_table "artists", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "artist_name", null: false
+    t.string "affiliation"
+    t.text "personal_history"
+    t.text "reason_for_support_activities"
+    t.text "artist_message"
+    t.bigint "user_id", null: false
+    t.bigint "donation_project_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["donation_project_id"], name: "index_artists_on_donation_project_id"
+    t.index ["user_id"], name: "index_artists_on_user_id"
+  end
 
   create_table "donation_projects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "project_name", null: false
@@ -40,4 +54,6 @@ ActiveRecord::Schema.define(version: 2020_11_22_194119) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "artists", "donation_projects"
+  add_foreign_key "artists", "users"
 end

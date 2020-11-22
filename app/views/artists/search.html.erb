@@ -1,0 +1,25 @@
+<%= render "shared/header" %>
+
+<div id="artwork-search-background-image">
+
+<div class="page-title">keyword”<%= @keyword %>”,   ARTIST SEARCH RESULT</div>
+
+<div class="grid">
+  <% if @results.present? %>
+    <% @results.each do |artist| %>
+      <div class="artist"> 
+
+      <%= link_to image_tag(artist.image, class: "artist-img"), artist_path(artist.id) if artist.image.attached? %>
+
+      <p class="property">name: <span class="bold"><%= artist.artist_name %></span></p>
+
+      </div>
+    <% end %>
+  <% else %>
+    <div class="content-non">該当する検索結果はありません。</div>
+  <% end %>
+</div>
+
+</div>
+
+<%= render "shared/footer" %>

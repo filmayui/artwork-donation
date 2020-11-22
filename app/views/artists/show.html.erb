@@ -1,0 +1,110 @@
+<%= render "shared/second-header" %>
+
+<div id="artist-show-background-image">
+
+<div class="artist-page-title">ARTIST PROFILE</div>
+
+<div class="artist-profile">
+  <div>
+  <%= image_tag(@artist.image, class: "artist-profile-img") if @artist.image.attached? %>
+  <div>
+    <% if user_signed_in? && current_user.id == @artist.user.id %>
+      <%= link_to 'アーティスト情報の編集', edit_artist_path(@artist.id), class: "artist-show-btn" %>
+    <% end %>
+  </div>
+  </div>
+  <div>
+    <div class="artist-profile-content">
+      <div class="artist-profile-text">アーティスト名</div>
+      <div class="artist-name-textarea"><%= @artist.artist_name %></div>
+    </div>
+
+    <div class="artist-profile-content">
+      <div class="artist-profile-text">所属</div>
+      <div class="affiliation-textarea"><%= @artist.affiliation %></div>
+    </div>
+
+    <div class="artist-profile-content">
+      <div class="artist-profile-text">経緯・経歴</div>
+      <div class="personal-history-textarea"><%= @artist.personal_history %></div>
+    </div>
+
+    <div class="artist-profile-content">
+      <div class="artist-profile-text">支援活動に興味を持った理由</div>
+      <div class="reason-for-support-activities-textarea"><%= @artist.reason_for_support_activities %></div>
+    </div>
+
+    <div class="artist-profile-content">
+      <div class="artist-profile-text">メッセージ</div>
+      <div class="artist-message-textarea"><%= @artist.artist_message %></div>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+
+<div class="this-artist-artwork">THIS ARTIST'S ARTWORK</div>
+
+<div class="artist-artworks-grid">
+  <% if @artworks.present? %>
+    <% @artworks.each do |artwork| %>
+      <div class="artist-artwork"> 
+
+      <%= link_to image_tag(artwork.image, class: :"artist-artwork-img"), artwork_path(artwork.id)%>
+
+      <p class="property">title: <span class="bold"><%= artwork.title %></span></p>
+      <p class="property">¥ <span class="bold"><%= artwork.price %></span></p>
+      <p class="property">favorite: <span class="bold"><%= Favorite.where(artwork_id: artwork.id).count %></span></p>
+
+      <% if nil != Order.find_by(artwork_id: artwork.id)%>
+        <div class="content-non">Sold Out!!</div>
+      <% end %>
+       </div>
+    <% end %>
+  <% else %>
+  <div class="artist-artwork-non">作品が登録されていません。</div>
+  <% end %>
+</div>
+  
+
+<br>
+<div class="this-artist-artwork">THIS ARTIST'S SUPPORT PROJECT</div>
+<br>
+
+<div class="artist-select-project">
+  <div class="artist-project">
+
+    <br>
+    <p class="donation-property">project: <span class="project-bold"><%= @donation_project.project_name %></span></p>
+    <br>
+
+    <%= image_tag(@donation_project.image, class: "donation-project-img") if @donation_project.image.attached? %>
+
+    <div class="project-textarea"><span class="donation-property">text: </span></div>
+
+    <table class="tableArea" id="makeImg">
+      <tr>
+        <th>目標金額</th><th>現在までの支援金総額</th><th>プロジェクト達成までの残り金額</th>
+      </tr>
+      <tr>
+        <td><span class="donation-credit"><%= @donation_project.target_amount %></span></td><td><span class="donation-credit"><%= @donation_project.current_amount %></span></td>
+
+        <% if 0 < @donation_project.target_amount - @donation_project.current_amount %>
+        <td><span class="donation-credit"><%= @donation_project.target_amount - @donation_project.current_amount %></span></td>
+        <% else %>
+        <td><span class="donation-credit"><%= 0 %></span></td>
+        <% end %>
+        
+      </tr>
+    </table>
+
+    <% if @donation_project.current_amount >= @donation_project.target_amount %>
+      <div class="content-non">このプロジェクトは達成されました。ご協力ありがとうございました!!!</div>
+    <% end %>
+  </div>
+</div>
+
+</div>
+
+<%= render "shared/footer" %>
+

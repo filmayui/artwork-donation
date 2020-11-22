@@ -1,0 +1,29 @@
+<%= render "shared/header" %>
+
+<div id="artist-index-background-image">
+
+<div class="page-title">ARTISTS</div>
+
+<div class="grid">
+  <% if @artists.present? %>
+    <% @artists.each do |artist| %>
+      <div class="artist"> 
+
+      <%= link_to image_tag(artist.image, class: "artist-img"), artist_path(artist.id) if artist.image.attached? %>
+
+      <p class="property">name: <span class="bold"><%= artist.artist_name %></span></p>
+
+      </div>
+    <% end %>
+  <% else %>
+    <div class="content-non">アーティストが登録されていません。</div>
+  <% end %>
+</div>
+
+</div>
+
+<%= render "shared/footer" %>
+
+
+
+
