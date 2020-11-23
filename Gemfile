@@ -65,3 +65,5 @@ gem 'active_hash'
 gem 'payjp'
 
 gem 'ransack'
+
+gem 'rails-i18n'
