@@ -1,0 +1,219 @@
+.artwork-detail-img {
+  height: 600px;
+  width: 600px;
+  margin: 50px;
+}
+
+.artwork-title-textarea {
+  width: 600px;
+  height: 30px;
+  border: 2px rgb(79, 129, 114) solid;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1rem;
+  word-break: break-word;
+}
+
+.artwork-artist-name-textarea {
+  width: 600px;
+  height: 30px;
+  border: 2px rgb(79, 129, 114) solid;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1rem;
+  word-break: break-word;
+}
+
+.artwork-text-textarea {
+  width: 600px;
+  height: 70px;
+  border: 2px rgb(79, 129, 114) solid;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1rem;
+  word-break: break-word;
+}
+
+.artwork-size-textarea {
+  width: 600px;
+  height: 30px;
+  border: 2px rgb(79, 129, 114) solid;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1rem;
+  word-break: break-word;
+}
+
+.artwork-price-textarea {
+  width: 600px;
+  height: 30px;
+  border: 2px rgb(79, 129, 114) solid;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1rem;
+  word-break: break-word;
+}
+
+.artwork-category-textarea {
+  width: 600px;
+  height: 30px;
+  border: 2px rgb(79, 129, 114) solid;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+.artwork-main-color-textarea {
+  width: 600px;
+  height: 30px;
+  border: 2px rgb(79, 129, 114) solid;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+.artwork-motif-textarea {
+  width: 600px;
+  height: 30px;
+  border: 2px rgb(79, 129, 114) solid;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+.artwork-feeling-textarea {
+  width: 600px;
+  height: 30px;
+  border: 2px rgb(79, 129, 114) solid;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+.artwork-prefecture-textarea {
+  width: 600px;
+  height: 30px;
+  border: 2px rgb(141, 35, 9) solid;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+.artwork-scheduled-delivery-textarea {
+  width: 600px;
+  height: 30px;
+  border: 2px  rgb(141, 35, 9) solid;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+.artwork-page-title {
+  font-size: 30px;
+  text-align: center;
+  border-bottom: 1px solid gray;
+  padding-top: 30px;
+}
+
+.artwork-show-btn {
+  text-decoration: none;
+  font-size: 15px; 
+  margin-left: 80px;
+}
+
+.artwork-show-btn:hover {
+  color: orange;
+}
+
+.artwork-detail {
+  display: flex;
+}
+
+.artwork-detail-text {
+  font-size: 20px;
+  color: gray;
+}
+
+.artwork-detail-content {
+  margin: 20px;
+}
+
+.artwork-project-non {
+  color: red;
+  font-size: 16px;
+  margin-left: 150px;
+  margin-top: 30px;
+}
+
+.artwork-content-non {
+  color: red;
+  font-size: 40px;
+  margin-left: 150px;
+  margin-top: 30px;
+}
+
+.artwork-donation-call {
+  font-size: 20px;
+  color: red;
+  margin-left: 50px;
+}
+
+.artwork-artist-btn {
+  text-decoration: none;
+  font-size: 15px; 
+}
+
+.artwork-artist-btn:hover {
+  color: orange;
+}
+
+div[data-check="true"] .star-icon {
+  filter: invert(81%) sepia(81%) saturate(633%) hue-rotate(359deg) brightness(106%) contrast(105%);
+}
+
+.star {
+  margin-left: 90px;
+}
+
+.comment-area {
+  margin-left: 160px;
+  padding-bottom: 100px;
+  border: 1px solid gray;
+  width: 700px;
+  word-break: break-word;
+}
+
+.comment-form {
+  padding-bottom: 30px;
+}
+
+.comment-btn {
+  text-decoration: none;
+  font-size: 15px; 
+}
+
+.comment-btn:hover {
+  color: orange;
+}
+
+.comment-people {
+  display: block;
+  width: 600px;
+}
+
+.comment-text {
+  display: block;
+  width: 600px;
+}
+
+.comment-created {
+  display: block;
+  width: 600px;
+  color: rgb(207, 115, 115);
+}
+
+#artwork-show-background-image {
+  background-image: url(/assets/debby-hudson-gJylsVMSf-k-unsplash);
+  min-height: 100vh;
+}
+

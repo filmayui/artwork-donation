@@ -1,0 +1,74 @@
+.location {
+  padding: 4% 0;
+}
+
+.location-info {
+  width: 22%;
+}
+
+.location-info p {
+  padding: 12px 10px;
+}
+
+.location-map {
+  width: 60%;
+}
+
+.location-info-title {
+  font-size: 35px;
+  padding: 35px;
+  border-bottom: 5px solid slateblue;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#sns {
+  padding: 4% 0;
+}
+
+.sns-box {
+  width: 30%;
+}
+
+.sns-title {
+  margin-bottom: 30px;
+  font-size: 20px;
+  border-bottom: 2px solid blueviolet;
+}
+
+#sns .wrapper {
+  display: flex;
+  justify-content: space-around;
+}
+
+.contact-check {
+  color: red;
+}
+
+.supporter {
+  font-size: 15px;
+  color: brown
+}
+.artist-image {
+  width: 16vw;
+  margin-right: 16vw;
+}
+
+.logo-image {
+  width: 15vw;
+  margin-right: 15vw;
+}
+
+.page-title {
+  font-size: 30px;
+  text-align: center;
+}
+
+#contact-index-background-image {
+  background-image: url(/assets/nordwood-themes-KcsKWw77Ovw-unsplash.jpg);
+  min-height: 100vh;
+}

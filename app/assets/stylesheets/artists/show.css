@@ -1,0 +1,197 @@
+.artist-artwork-img {
+  height: 200px;
+  width: 200px;
+}
+
+.artist-profile-img {
+  height: 600px;
+  width: 600px;
+  padding: 50px;
+}
+
+.property {
+  border-bottom: 1px solid rgb(94, 26, 79);
+  color: rgb(80, 70, 70);
+}
+
+.content-non {
+  color: red;
+  font-size: 20px;
+}
+
+.artist-artworks-grid {
+  display: grid;
+  gap: 26px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  padding-top: 6%;
+  padding-bottom: 50px;
+  padding-left: 60px;
+}
+
+.bold {
+  font-size: 20px;
+  color: black;
+}
+
+.artist-name-textarea {
+  width: 600px;
+  height: 30px;
+  border: 2px rgb(83, 6, 207) solid;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1rem;
+  word-break: break-word;
+}
+
+.affiliation-textarea {
+  width: 600px;
+  height: 30px;
+  border: 2px  rgb(83, 6, 207) solid;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1rem;
+  word-break: break-word;
+}
+
+.personal-history-textarea {
+  width: 600px;
+  height: 160px;
+  border: 2px  rgb(83, 6, 207) solid;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1rem;
+  word-break: break-word;
+}
+
+.artist-message-textarea {
+  width: 600px;
+  height: 160px;
+  border: 2px  rgb(83, 6, 207) solid;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1rem;
+  word-break: break-word;
+}
+
+.reason-for-support-activities-textarea {
+  width: 600px;
+  height: 160px;
+  border: 2px  rgb(83, 6, 207) solid;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1rem;
+  word-break: break-word;
+}
+
+.artist-profile {
+  display: flex;
+}
+
+.artist-profile-text {
+  font-size: 20px;
+  color: gray;
+}
+
+.this-artist-artwork {
+  font-size: 25px;
+  text-align: center;
+}
+
+.artist-profile-content {
+  margin: 20px;
+}
+
+.artist-page-title {
+  font-size: 30px;
+  text-align: center;
+  border-bottom: 1px solid gray;
+  padding-top: 30px;
+}
+
+.donation-project-img {
+  height: 450px;
+  width: 450px;
+}
+
+.content-non {
+  color: red;
+  font-size: 20px;
+}
+
+.bold {
+  font-size: 20px;
+  color: black;
+}
+
+.donation-property {
+  color: rgb(80, 70, 70);
+}
+
+.project-textarea {
+  width: 600px;
+  height: 200px;
+  border: 3px solid gray;
+  word-break: break-word;
+}
+
+.tableArea {
+  width          : 100%;             /* 100%幅     */
+  border-collapse: separate;         /* 境界線結合 */
+  border-spacing : 6px;            /* 罫線間余白 */
+  font-size      : 9pt;              /* 文字サイズ */
+  background     : #ffffff;          /* テーブル全体の背景色 */
+}
+ /* --- ヘッダーのスタイル指定 ------------------- */
+.tableArea th {
+  text-align    : center;            /* 文字位置   */
+  font-weight   : bold;              /* 太文字     */
+  padding       : 3px 4px;           /* 余白       */
+  border        : 1px #666666 solid; /* 罫線       */
+  background    : rgba(127, 0, 127, 0.10);           /* 背景色     */
+}
+ /* --- 明細のスタイル指定 ----------------------- */
+.tableArea td {
+  text-align    : center;            /* 文字位置   */
+  padding       : 5px 3px;           /* 余白       */
+  border        : 1px #666666 solid; /* 罫線       */
+}
+ /* --- 明細のｎ行スタイル指定 ------------------- */
+.tableArea tr:nth-child(2n+1) {
+  background    : rgba(102, 102, 255, 0.35);           /* 背景色     */
+}
+
+.artist-select-project {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 70px;
+}
+
+.project-bold {
+  font-size: 25px;
+  color: rgb(92, 6, 6);
+}
+
+.artist-show-btn {
+  text-decoration: none;
+  font-size: 15px; 
+  margin-left: 80px;
+}
+
+.artist-show-btn:hover {
+  color: orange;
+}
+
+#artist-show-background-image {
+  background-image: url(/assets/debby-hudson-gJylsVMSf-k-unsplash);
+  min-height: 100vh;
+}
+
+.artist-artwork-non {
+  color: red;
+  font-size: 20px;
+  text-align: center;
+}
+
+.donation-credit {
+  color: rgb(189, 17, 17);
+}

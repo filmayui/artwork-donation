@@ -1,0 +1,37 @@
+.grid {
+  display: grid;
+  gap: 26px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  padding-top: 6%;
+  padding-bottom: 50px;
+}
+
+.artist-img {
+  height: 150px;
+  width: 150px;
+}
+
+.bold {
+  font-size: 20px;
+  color: black;
+}
+
+.property {
+  border-bottom: 1px solid rgb(94, 26, 79);
+  color: rgb(80, 70, 70);
+}
+
+.content-non {
+  color: red;
+  font-size: 20px;
+}
+
+.page-title {
+  font-size: 30px;
+  text-align: center;
+}
+
+#artist-index-background-image {
+  background-image: url(/assets/nordwood-themes-KcsKWw77Ovw-unsplash.jpg);
+  min-height: 100vh;
+}

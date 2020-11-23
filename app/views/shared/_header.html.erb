@@ -1,0 +1,119 @@
+<div id="header-background-image">
+
+<div class="nav">
+  <%= link_to image_tag("artwork-donation-logo.png", class:"logo-image"), artworks_path %>
+  <div class="main-menu">
+    <ul class="user-menu">
+      <li><%= link_to '支援中のプロジェクト一覧', donation_projects_path, class: "btn" %></li>
+      <li><%= link_to 'アーティスト一覧', artists_path, class: "btn" %></li>
+      <li><%= link_to 'アートワーク一覧', artworks_path, class: "btn" %></li>
+      <li><%= link_to 'お問い合わせ', contacts_path, class: "btn" %></li>
+      <% if user_signed_in? %>
+      <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "devise-btn" %></li> 
+      <% else %>
+      <li><%= link_to 'ログイン', new_user_session_path, class: "devise-btn" %></li>
+      <li><%= link_to '新規登録', new_user_registration_path, class: "devise-btn" %></li>
+      <% end %>
+    </ul>
+
+    <ul class="artist-menu">
+      <% if user_signed_in? && current_user.admin?%>
+      <li><%= link_to '支援プロジェクト登録', new_donation_project_path, class: "btn" %></li>
+      <% end %>
+
+      <% if user_signed_in? && nil != Artist.find_by(user_id: current_user.id) %>
+      <li><%= link_to '作品登録', new_artwork_path, class: "btn" %></li>
+      <li><%= link_to '支援プロジェクトチャットルーム', donation_project_room_path(current_user.artist.donation_project.id), class: "btn" %></li>
+      <li><%= link_to current_user.artist.artist_name, artist_path(current_user.artist.id), class: "btn" %></li>
+      <% elsif user_signed_in? %>
+      <li><%= link_to 'アーティスト登録', new_artist_path, class: "btn" %></li>
+      <% end %>
+      <% if user_signed_in? %>
+      <li><%= link_to current_user.nickname, user_path(current_user.id), class: "btn" %></li> 
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+
+
+<div class="header-content">
+
+  <div class="slide" id="makeImg">
+  <img src="assets/IMG_7892.jpg">
+  <img src="assets/sandra-seitamaa-7-3cGWyQlV0-unsplash.jpg">
+  <img src="assets/amauri-mejia-IhXrWDckZOQ-unsplash.jpg">
+  <img src="assets/ravi-sharma-85IJIHk4-jc-unsplash.jpg">
+  <img src="assets/Emma-Lindstrom-7.jpg">
+  </div>
+
+  <div class="artwork-search">
+    <%= search_form_for @a, url: search_artworks_path do |f| %>
+
+    <div class="header-artwork-form1">
+      <div class="field">
+      <%= f.label :name_eq, 'カテゴリー' %>
+      <%= f.collection_select :category_id_eq, @category, :id, :name, include_blank: '--' %>
+      </div>
+      <br>
+
+      <div class="field">
+      <%= f.label :name_eq, 'メインカラー' %>
+      <%= f.collection_select :main_color_id_eq, @main_color, :id, :name, include_blank: '--' %>
+      </div>
+      <br>
+    </div>
+
+    <div class="header-artwork-form2">
+      <div class="field">
+      <%= f.label :name_eq, 'モチーフ' %>
+      <%= f.collection_select :motif_id_eq, @motif, :id, :name, include_blank: '--' %>
+      </div>
+      <br>
+
+      <div class="field">
+      <%= f.label :name_eq, 'フィーリング' %>
+      <%= f.collection_select :feeling_id_eq, @feeling, :id, :name, include_blank: '--' %>
+      </div>
+      <br>
+    </div>
+
+      <div class="field">
+      <%= f.label :price, '設定価格：' %>
+      <%= f.radio_button :price_lteq, '' %>
+      指定なし
+      <%= f.radio_button :price_lteq, '1000' %>
+      1000円以下
+      <%= f.radio_button :price_lteq, '2500' %>
+      2500円以下
+      <%= f.radio_button :price_lteq, '5000' %>
+      5000円以下
+      <br>
+      <%= f.submit 'アートワーク検索' , class: "submit-btn"%>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="artist-search">
+    <%= form_with url: search_artists_path, class:'form-wrap', local: true do |f| %>
+      <div class='message-form'>
+        <div class="message-field">
+          <%= f.text_area :keyword, class:"input-message", placeholder: "keyword" %>
+        </div>
+      </div>
+      <div class="submit-post">
+        <%= f.submit "アーティスト検索", class: "submit-btn" %>
+      </div>
+    <% end %>
+  </div>
+
+</div>
+
+</div>
+
+
+
+
+
+
+
