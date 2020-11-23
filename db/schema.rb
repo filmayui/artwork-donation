@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_23_024849) do
+ActiveRecord::Schema.define(version: 2020_11_23_030338) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -138,6 +138,16 @@ ActiveRecord::Schema.define(version: 2020_11_23_024849) do
     t.index ["donation_project_room_id"], name: "index_room_messages_on_donation_project_room_id"
   end
 
+  create_table "sale_logs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "artist_name"
+    t.string "artwork_title"
+    t.integer "donation_price"
+    t.bigint "donation_project_room_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["donation_project_room_id"], name: "index_sale_logs_on_donation_project_room_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname", null: false
     t.string "last_name", null: false
@@ -171,4 +181,5 @@ ActiveRecord::Schema.define(version: 2020_11_23_024849) do
   add_foreign_key "orders", "users"
   add_foreign_key "room_messages", "artists"
   add_foreign_key "room_messages", "donation_project_rooms"
+  add_foreign_key "sale_logs", "donation_project_rooms"
 end
