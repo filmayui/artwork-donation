@@ -1,0 +1,117 @@
+<%= render "shared/second-header" %>
+
+<div id="donation-project-room-background-image">
+
+<div class="page-title">DONATION PROJECT ROOM</div>
+
+<div class="room-donation-project">
+  <div class="room-donation-project-image">
+    <%= image_tag @donation_project.image if @donation_project.image.attached? %>
+  </div>
+  <div class="room-donation-project-property">
+    <br>
+    <p class="donation-property">project: <span class="project-bold"><%= @donation_project.project_name %></span></p>
+    <br>
+    <div class="project-textarea"><span class="donation-property">text: <%= @donation_project.text %></span></div>
+
+    <table class="tableArea" id="makeImg">
+      <tr>
+        <th>目標金額</th><th>現在までの支援金総額</th><th>プロジェクト達成までの残り金額</th>
+      </tr>
+      <tr>
+        <td><span class="donation-credit"><%= @donation_project.target_amount %></span></td><td><span class="donation-credit"><%= @donation_project.current_amount %></span></td>
+
+        <% if 0 < @donation_project.target_amount - @donation_project.current_amount %>
+        <td><span class="donation-credit"><%= @donation_project.target_amount - @donation_project.current_amount %></span></td>
+        <% else %>
+        <td><span class="donation-credit"><%= 0 %></span></td>
+        <% end %>          
+      </tr>
+    </table>
+
+    <% if @donation_project.current_amount >= @donation_project.target_amount %>
+      <div class="content-non">このプロジェクトは達成されました。ご協力ありがとうございました!!!</div>
+    <% end %>
+
+  </div>
+</div>
+
+<div class="donation-project-room-content">
+
+  <div class="support-artists-area">
+
+    <div class="participants">PARTICIPANTS</div>
+
+    <% if @artists.present? %>
+        <% @artists.each do |artist| %>
+        <div class="support-artist">
+          <%= link_to image_tag(artist.image, class: "donation-project-artist-img"), artist_path(artist.id) if artist.image.attached? %>
+          <p class="property">name: <span class="bold"><%= artist.artist_name %></span></p>
+        </div>
+        <% end %>
+      <% else %>
+    <% end %>
+  </div>
+
+  <div class="room-message-area">
+
+    <div class="room-chat">ROOM CHAT</div>
+
+    <div class="room-chat-content">
+      <div class="room-message-form">
+        <% if user_signed_in? %>
+          <%= form_with model: [@donation_project_room, @room_message], local: true do |f| %>
+
+            <div class="field">
+              <%= f.label :text, "メッセージ" %><br />
+              <%= f.text_field :text %>
+              <%= f.submit "送信する" %>
+            </div>
+          <% end %> 
+        <% end %>
+      </div>
+
+      <ul class="room-messages-lists">
+        <div id="room-messages">
+        <% @room_messages.reverse_each do |room_message| %>
+          <li class="room-messages-list">
+            <span class="room-message-people">
+              <%= link_to room_message.artist.artist_name, artist_path(room_message.artist.id), class:"room-message-btn" %>
+            </span>
+            <span class="room-message-text">
+              <%= room_message.text %>
+            </span>
+            <span class="room-message-created">
+              <%= l room_message.created_at %>
+            </span>
+            <br>
+          </li>
+        <% end %>
+        </div>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sale-logs-area">
+
+    <div class="project-sale">SALE LOGS</div>
+
+    <div id="sale-logs">
+      <% @sale_logs.reverse_each do |sale_log| %>
+        <li class="sale-logs-list">
+          <%= link_to sale_log.artist_name, artist_path(room_message.artist.id), class: :comment_user %>
+          さんの
+          <%= sale_log.artwork_title %>
+          が購入され、￥
+          <%= sale_log.donation_price %>
+          寄付されました！
+          <%= l sale_log.created_at %>
+        </li>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+</div>
+    
+<%= render "shared/footer" %>

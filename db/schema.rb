@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_23_015645) do
+ActiveRecord::Schema.define(version: 2020_11_23_023715) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -45,6 +45,11 @@ ActiveRecord::Schema.define(version: 2020_11_23_015645) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["donation_project_id"], name: "index_artists_on_donation_project_id"
     t.index ["user_id"], name: "index_artists_on_user_id"
+  end
+
+  create_table "artwork_orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "artworks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -96,6 +101,13 @@ ActiveRecord::Schema.define(version: 2020_11_23_015645) do
     t.index ["order_id"], name: "index_delivery_addresses_on_order_id"
   end
 
+  create_table "donation_project_rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "donation_project_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["donation_project_id"], name: "index_donation_project_rooms_on_donation_project_id"
+  end
+
   create_table "donation_projects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "project_name", null: false
     t.text "text", null: false
@@ -143,6 +155,7 @@ ActiveRecord::Schema.define(version: 2020_11_23_015645) do
   add_foreign_key "comments", "artworks"
   add_foreign_key "comments", "users"
   add_foreign_key "delivery_addresses", "orders"
+  add_foreign_key "donation_project_rooms", "donation_projects"
   add_foreign_key "orders", "artworks"
   add_foreign_key "orders", "donation_projects"
   add_foreign_key "orders", "users"
