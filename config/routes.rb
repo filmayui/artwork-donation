@@ -26,5 +26,7 @@ Rails.application.routes.draw do
     resources :orders, only: [:index, :create]
     resources :comments, only: [:create]
   end
+
+  resources :donation_project_rooms, only: [:show] 
   
 end
