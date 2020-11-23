@@ -114,18 +114,24 @@
 .support-artists-area {
   padding-bottom: 100px;
   border: 1px solid gray;
+  overflow: scroll;
+  height: 700px;
 }
 
 .room-message-area {
   padding-bottom: 100px;
   border: 1px solid gray;
   width: 600px;
+  overflow: scroll;
+  height: 700px;
 }
 
 .sale-logs-area {
   padding-bottom: 100px;
   border: 1px solid gray;
   width: 600px;
+  overflow: scroll;
+  height: 700px;
 }
 
 .room-message-form {

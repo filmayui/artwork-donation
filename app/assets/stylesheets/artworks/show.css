@@ -181,6 +181,8 @@ div[data-check="true"] .star-icon {
   border: 1px solid gray;
   width: 700px;
   word-break: break-word;
+  overflow: scroll;
+  height: 300px;
 }
 
 .comment-form {
