@@ -98,15 +98,17 @@
 
     <div id="sale-logs">
       <% @sale_logs.reverse_each do |sale_log| %>
-        <li class="sale-logs-list">
-          <%= link_to sale_log.artist_name, artist_path(room_message.artist.id), class: :comment_user %>
+        <div class="sale-logs-list">
+          <br>
+          <%= sale_log.artist_name %>
           さんの
           <%= sale_log.artwork_title %>
-          が購入され、￥
+          が購入され、¥
           <%= sale_log.donation_price %>
           寄付されました！
+          <br>
           <%= l sale_log.created_at %>
-        </li>
+        </div>
       <% end %>
     </div>
   </div>

@@ -176,9 +176,9 @@
 
 | Column                | Type       | Options                        |
 | --------------------- | ---------- | ------------------------------ |
-| artist_name           | string     | null: false                    |
-| artwork_title         | string     | null: false                    |
-| donation_price        | integer    | null: false                    |
+| artist_name           | string     |                                |
+| artwork_title         | string     |                                |
+| donation_price        | integer    |                                |
 | donation_project_room | references | null: false, foreign_key: true |
 
 - belongs_to :donation_project_room

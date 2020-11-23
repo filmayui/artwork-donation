@@ -16,11 +16,10 @@
   </div>
   <% end %>
     お気に入り登録数 <span id="count"><%= @favoriteCount %></span>
-    <% if user_signed_in? && current_user.id == @artwork.artist.user.id %>
-      <%= link_to '削除', artwork_path(@artwork.id), method: :delete, class:'artwork-show-btn' %>
-    <% end %>
+    
     <% if user_signed_in? && current_user.id == @artwork.artist.user.id && nil == Order.find_by(artwork_id: @artwork.id) %>
       <%= link_to '作品情報の編集', edit_artwork_path(@artwork.id), method: :get, class:"artwork-show-btn" %>
+      <%= link_to '削除', artwork_path(@artwork.id), method: :delete, class:'artwork-show-btn' %>
     <% end %>
   </div>
 

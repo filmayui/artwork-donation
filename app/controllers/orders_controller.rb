@@ -58,7 +58,7 @@ class OrdersController < ApplicationController
       artist = Artist.find_by(id: @artwork.artist.id)
 
       #購入ログを作成
-      sale_log = SaleLog.new(artist_name: artist.artist_name, artwork_title: @artwork_title, donation_price: @donationPrice, donation_project_room_id: artist.donation_project.donation_project_room.id)
+      sale_log = SaleLog.new(artist_name: artist.artist_name, artwork_title: @artwork.title, donation_price: @donationPrice, donation_project_room_id: artist.donation_project.donation_project_room.id)
 
       #購入ログを保存
       sale_log.save
@@ -72,7 +72,7 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:artwork_order).permit(:postal_code, :prefecture_id, :city, :addresses, :building, :phone_number).merge(user_id: current_user.id, artwork_id: params[:artwork_id], donation_project_id: @artwork.artist.donation_project_id)
+    params.require(:artwork_order).permit(:postal_code, :prefecture_id, :city, :addresses, :building, :phone_number).merge(user_id: current_user.id, artwork_id: params[:artwork_id], donation_project_id: @artwork.artist.donation_project.id)
   end
 
   def pay_donation(artwork)

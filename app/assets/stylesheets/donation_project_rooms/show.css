@@ -64,6 +64,7 @@
 .support-artist {
   width: 200px;
   height: 200px;
+  padding-left: 10px;
 }
 
 .donation-project-room-content {
@@ -146,5 +147,13 @@
   color: rgb(207, 115, 115);
 }
 
+.sale-log-created {
+  display: block;
+  width: 600px;
+  color: rgb(207, 115, 115);
+}
 
+.sale-logs-list {
+  color: rgb(207, 115, 115);
+}
 

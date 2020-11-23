@@ -3,7 +3,7 @@ class Artwork < ApplicationRecord
 
   belongs_to :artist
   has_many :comments, dependent: :destroy
-  has_many :favorites
+  has_many :favorites, dependent: :destroy
   has_many :users, through: :favorites
   has_one :order
 

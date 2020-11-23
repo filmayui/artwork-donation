@@ -1,4 +1,4 @@
-lass DeliveryAddress < ApplicationRecord
+class DeliveryAddress < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
 
   belongs_to :order

@@ -14,7 +14,7 @@ class ArtworkOrder
 
     #orderテーブルとdelivery_addressテーブルにユーザー購入情報をそれぞれ保存
     order = Order.create(user_id: user_id, artwork_id: artwork_id, donation_project_id: donation_project_id)
-    delivery_address = DeliveryAddress.create(postal_code: postal_code, prefecture_id: prefecture_id, city: city, addresses: addresses, building: building, phone_number: phone_number, order_id: order.id)
+    DeliveryAddress.create(postal_code: postal_code, prefecture_id: prefecture_id, city: city, addresses: addresses, building: building, phone_number: phone_number, order_id: order.id)
     
   end
 end
