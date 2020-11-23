@@ -1,0 +1,76 @@
+<%= render "shared/second-header" %>
+
+<div id="order-index-background-image">
+
+  <div class='buy-artwork-info'>
+    <%= image_tag @artwork.image , class: 'buy-artwork-img' if @artwork.image.attached? %>
+    <p class='artwork-title-text'>title: <%= @artwork.title %></p>
+    <p class='artwork-price-text'>¥ <%= @artwork.price %></p>
+    <br>
+    <div class="check"> ※送料は購入者負担となりますのでご了承下さい。</div>
+    <div class="check"> ※この作品が購入された場合、アーティストが指定している支援プロジェクトへ売り上げの90%が寄付されます。</div>
+    <br>
+    <br>
+
+    <div class="label">
+    <div>カード情報</div>
+    <br>
+      【カード番号】
+      <br>
+      <%= "**** **** **** " + @card[:last4] %>
+      <%# カード番号の下4桁を取得 %>
+
+      <br>
+      【有効期限】
+      <br>
+      <%= @card[:exp_month] %>
+      <%# 有効期限の「月」を取得 %>
+      /
+      <%= @card[:exp_year] %>
+      <%# 有効期限の「年」を取得 %>
+    </div>
+
+    <%= form_with model: @artwork_order, url: artwork_orders_path(@artwork.id), local: true do |f| %>
+
+    <%= render 'shared/error_messages', model: @artwork_order %>
+
+    <div class="field">
+    <%= f.label :postal_code, "郵便番号", class:"label" %><br />
+    <%= f.text_field :postal_code, class:"postal-code-textarea", id:"postal-code", placeholder:"例）123-4567", maxlength:"8" %>
+    </div>
+
+    <div class="field">
+    <%= f.label :prefecture_id, "都道府県", class:"label" %><br />
+    <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"prefecture"}) %>
+    </div>
+
+    <div class="field">
+    <%= f.label :city, "市区町村", class:"label" %><br />
+    <%= f.text_field :city, class:"city-textarea", id:"city", placeholder:"例）横浜市緑区"%>
+    </div>
+
+    <div class="field">
+    <%= f.label :addresses, "番地", class:"label" %><br />
+    <%= f.text_field :addresses, class:"addresses-textarea", id:"addresses", placeholder:"例）青山1-1-1"%>
+    </div>
+
+    <div class="field">
+    <%= f.label :building, "建物名", class:"label" %><br />
+    <%= f.text_field :building, class:"building-textarea", id:"building", placeholder:"例）柳ビル103"%>
+    </div>
+
+    <div class="field">
+    <%= f.label :phone_number, "電話番号", class:"label" %><br />
+    <%= f.text_field :phone_number, class:"phone-number-textarea", id:"phone-number", placeholder:"例）09012345678",maxlength:"11"%>
+    </div>
+
+    <p class="donation-call">この作品を購入すると、<%= @artwork.artist.donation_project.project_name %>に¥<%= @donationPrice %>円寄付されます。</p>
+
+    <%= f.submit "作品を購入して支援プロジェクトへ寄付する" ,class:"submit-btn" %>
+
+    <% end %>
+  </div>
+
+</div>
+
+<%= render "shared/footer" %>
