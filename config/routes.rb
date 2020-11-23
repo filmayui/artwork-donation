@@ -27,6 +27,8 @@ Rails.application.routes.draw do
     resources :comments, only: [:create]
   end
 
-  resources :donation_project_rooms, only: [:show] 
+  resources :donation_project_rooms, only: [:show] do
+    resources :room_messages, only: [:create]
+  end
   
 end
