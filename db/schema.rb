@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_23_030338) do
+ActiveRecord::Schema.define(version: 2020_11_23_030927) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -117,6 +117,16 @@ ActiveRecord::Schema.define(version: 2020_11_23_030338) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "favorites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "artwork_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["artwork_id"], name: "index_favorites_on_artwork_id"
+    t.index ["user_id", "artwork_id"], name: "index_favorites_on_user_id_and_artwork_id", unique: true
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
   create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "donation_project_id", null: false
     t.bigint "user_id", null: false
@@ -176,6 +186,8 @@ ActiveRecord::Schema.define(version: 2020_11_23_030338) do
   add_foreign_key "comments", "users"
   add_foreign_key "delivery_addresses", "orders"
   add_foreign_key "donation_project_rooms", "donation_projects"
+  add_foreign_key "favorites", "artworks"
+  add_foreign_key "favorites", "users"
   add_foreign_key "orders", "artworks"
   add_foreign_key "orders", "donation_projects"
   add_foreign_key "orders", "users"
