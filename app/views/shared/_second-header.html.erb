@@ -1,0 +1,14 @@
+<div class="second-header">
+  <div class="second-header-nav">
+    <%= link_to image_tag("artwork-donation-logo-white.png", class:"second-header-logo"), artworks_path %>
+    <div class="second-header-login">
+      <% if user_signed_in? %>
+        <%= link_to current_user.nickname, user_path(current_user.id), class: "second-header-btn"  %>
+        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "second-header-btn"  %> 
+      <% else %>
+        <%= link_to 'ログイン', new_user_session_path, class: "second-header-btn"  %>
+        <%= link_to '新規登録', new_user_registration_path, class: "second-header-btn"  %>
+      <% end %>
+    </div>
+  </div>
+</div>
