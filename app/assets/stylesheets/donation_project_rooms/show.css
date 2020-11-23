@@ -1,0 +1,150 @@
+.room-donation-project {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 30px;
+}
+
+.tableArea {
+  width          : 100%;             /* 100%幅     */
+  border-collapse: separate;         /* 境界線結合 */
+  border-spacing : 6px;            /* 罫線間余白 */
+  font-size      : 9pt;              /* 文字サイズ */
+  background     : #ffffff;          /* テーブル全体の背景色 */
+}
+ /* --- ヘッダーのスタイル指定 ------------------- */
+.tableArea th {
+  text-align    : center;            /* 文字位置   */
+  font-weight   : bold;              /* 太文字     */
+  padding       : 3px 4px;           /* 余白       */
+  border        : 1px #666666 solid; /* 罫線       */
+  background    : rgba(127, 0, 127, 0.10);           /* 背景色     */
+}
+ /* --- 明細のスタイル指定 ----------------------- */
+.tableArea td {
+  text-align    : center;            /* 文字位置   */
+  padding       : 5px 3px;           /* 余白       */
+  border        : 1px #666666 solid; /* 罫線       */
+}
+ /* --- 明細のｎ行スタイル指定 ------------------- */
+.tableArea tr:nth-child(2n+1) {
+  background    : rgba(102, 102, 255, 0.35);           /* 背景色     */
+}
+
+.donation-credit {
+  color: rgb(189, 17, 17);
+}
+
+.page-title {
+  font-size: 30px;
+  text-align: center;
+  border-bottom: 1px solid gray;
+  padding-top: 30px;
+}
+
+.content-non {
+  color: red;
+  font-size: 20px;
+}
+
+.donation-project-artist-img {
+  height: 150px;
+  width: 150px;
+}
+
+.bold {
+  font-size: 20px;
+  color: black;
+}
+
+.property {
+  border-bottom: 1px solid rgb(94, 26, 79);
+  color: rgb(80, 70, 70);
+}
+
+.support-artist {
+  width: 200px;
+  height: 200px;
+}
+
+.donation-project-room-content {
+  display: flex;
+  justify-content: space-between;
+  padding: 50px;
+}
+
+.participants {
+  font-size: 25px;
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.room-chat {
+  font-size: 25px;
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.room-chat-content {
+  padding-right: 300px;
+}
+
+.project-sale {
+  font-size: 25px;
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.room-message-people {
+  display: block;
+  width: 600px;
+}
+
+.room-message-text {
+  display: block;
+  width: 600px;
+  word-break: break-word;
+}
+
+#donation-project-room-background-image {
+  background-image: url(/assets/debby-hudson-gJylsVMSf-k-unsplash);
+  min-height: 100vh;
+}
+
+.support-artists-area {
+  padding-bottom: 100px;
+  border: 1px solid gray;
+}
+
+.room-message-area {
+  padding-bottom: 100px;
+  border: 1px solid gray;
+  width: 600px;
+}
+
+.sale-logs-area {
+  padding-bottom: 100px;
+  border: 1px solid gray;
+  width: 600px;
+}
+
+.room-message-form {
+  padding-bottom: 30px;
+}
+
+.room-message-btn {
+  text-decoration: none;
+  font-size: 15px; 
+}
+
+.room-message-btn:hover {
+  color: orange;
+}
+
+.room-message-created {
+  display: block;
+  width: 600px;
+  color: rgb(207, 115, 115);
+}
+
+
+

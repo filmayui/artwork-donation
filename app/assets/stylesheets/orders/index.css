@@ -1,0 +1,143 @@
+.label {
+  font-size: 1.125rem;
+  margin-bottom: 2px;
+  margin-top: 5px;
+  display: block;
+}
+
+.submit-btn {
+  cursor: pointer;
+  display       : inline-block;
+  border-radius : 20%;          /* 角丸       */
+  font-size     : 18pt;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 12px 12px;   /* 余白       */
+  background    : #3714d3;     /* 背景色     */
+  color         : #ffffff;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  box-shadow    : 6px 6px 3px #666666;  /* 影の設定 */
+  border        : 2px solid  #6666ff;    /* 枠の指定 */
+  margin: 30px;
+}
+
+.submit-btn:hover {
+  box-shadow    : none;        /* カーソル時の影消去 */
+  color         : #af264f;     /* 背景色     */
+  background    : #ffffff;     /* 文字色     */
+}
+
+.postal-code-textarea {
+  width: 600px;
+  border: 1px rgb(194, 103, 179) solid;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+.prefecture-textarea {
+  width: 1200px;
+  height: 200px;
+  border: 1px rgb(194, 103, 179) solid;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+.city-textarea {
+  width: 600px;
+  border: 1px rgb(194, 103, 179) solid;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+.addresses-textarea {
+  width: 600px;
+  border: 1px rgb(194, 103, 179) solid;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+.building-textarea {
+  width: 600px;
+  border: 1px rgb(194, 103, 179) solid;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+.phone-number-textarea {
+  width: 600px;
+  border: 1px rgb(194, 103, 179) solid;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+.donation-project-contents {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  min-width: 500px;
+}
+
+.svgSample1 text {
+  font-weight       : bold;
+  font-size         : 27px;
+  stroke            : #6666ff;
+  fill              : #ffffff;
+  letter-spacing    : 3px;
+  text-anchor       : middle;
+}
+
+.svgSample1 > svg > use:nth-of-type(1) {
+  stroke-width      : 7px;
+  paint-order       : stroke;
+  stroke-linejoin   : round ;
+}
+
+.svgSample1 > svg > use:nth-of-type(2) {
+  stroke-width      : 0;
+}
+
+.buy-artwork-img {
+  height: 300px;
+  width: 300px;
+  margin-top: 10px;
+}
+
+.buy-artwork-info {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  min-width: 500px;
+}
+
+.donation-call {
+  font-size: 25px;
+  color: red;
+}
+
+.check {
+  font-size: 15px;
+  color: red;
+}
+
+.artwork-title-text {
+  font-size: 20px;
+}
+
+.artwork-price-text {
+  font-size: 20px;
+}
+
+#order-index-background-image {
+  background-image: url(/assets/debby-hudson-gJylsVMSf-k-unsplash);
+  background-position: right 84% bottom 50%;
+  min-height: 100vh;
+}
