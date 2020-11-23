@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   root to: "artworks#index"
 
+  resources :cards, only: [:new, :create, :destroy]
+
   resources :donation_projects, only: [:index, :new, :create]
 
   resources :users, only: [:show] do
