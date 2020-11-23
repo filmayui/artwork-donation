@@ -1,0 +1,14 @@
+footer {
+  background: #9153ac;
+  text-align: center;
+  padding: 26px 0;
+  width: 100vw;
+  
+}
+
+footer p {
+  color: rgb(236, 236, 184);
+  font-size: 0.875rem;
+  margin: 10px;
+}
+

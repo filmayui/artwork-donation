@@ -8,11 +8,13 @@
   <div>
   <%= image_tag(@artwork.image, class: "artwork-detail-img") if @artwork.image.attached? %>
   <div>
-  
+
   <div class="star">
+  <% if user_signed_in? %>
   <div id="artwork" data-id=<%= @artwork.id %> <% if nil != Favorite.find_by(user_id: current_user.id, artwork_id: @artwork.id) %>data-check="true"<% end %> >
     <%= image_tag "star.png", class:"star-icon" %>
   </div>
+  <% end %>
     お気に入り登録数 <span id="count"><%= @favoriteCount %></span>
     <% if user_signed_in? && current_user.id == @artwork.artist.user.id %>
       <%= link_to '削除', artwork_path(@artwork.id), method: :delete, class:'artwork-show-btn' %>

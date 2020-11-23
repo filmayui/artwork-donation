@@ -1,6 +1,6 @@
 class ArtistsController < ApplicationController
 
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show, :search]
   before_action :set_artist, only: [:edit, :show, :update]
   before_action :search_artwork, only: [:index, :search, :show]
 

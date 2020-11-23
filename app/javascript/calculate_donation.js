@@ -1,4 +1,4 @@
-if (document.URL.match( /artwork/ ) && document.URL.match( /new/ )) {
+if (document.URL.match( /artwork/ ) && document.URL.match( /new/ ) || document.URL.match( /artwork/ ) && document.URL.match( /edit/ )) {
   document.addEventListener('DOMContentLoaded', function(){
 
     const artwork_price = document.getElementById("artwork-price")

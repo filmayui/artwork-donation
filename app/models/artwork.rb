@@ -20,7 +20,7 @@ class Artwork < ApplicationRecord
     validates :title
     validates :size
     validates :text
-    validates :price, inclusion: { in: 500..9999999, message: 'は範囲内の数値を入力してください' }, format: { with: /\A[0-9]+\z/, message: 'は半角数字で入力してください' }
+    validates :price, inclusion: { in: 1000..9999999, message: 'は範囲内の数値を入力してください' }, format: { with: /\A[0-9]+\z/, message: 'は半角数字で入力してください' }
     validates :category_id,             numericality: { other_than: 0, message: 'を選択してください' }
     validates :main_color_id,           numericality: { other_than: 0, message: 'を選択してください'  }
     validates :motif_id,                numericality: { other_than: 0, message: 'を選択してください'  }

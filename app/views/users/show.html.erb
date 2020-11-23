@@ -23,7 +23,7 @@
       /
       <%= @card[:exp_year] %>
       <%# 有効期限の「年」を取得 %>
-
+    <br>
     <%= link_to '削除', card_path(@card.id), method: :delete, class: "user-show-btn" %>
     <% else %>
     <%= link_to 'カード情報登録', new_card_path, class: "user-show-btn" %>
