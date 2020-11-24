@@ -5,8 +5,8 @@
   <div class="main-menu">
     <ul class="user-menu">
       <li><%= link_to '支援中のプロジェクト一覧', donation_projects_path, class: "btn" %></li>
-      <li><%= link_to 'アーティスト一覧', artists_path, class: "btn" %></li>
-      <li><%= link_to 'アートワーク一覧', artworks_path, class: "btn" %></li>
+      <li><%= link_to 'サポートアーティスト一覧', artists_path, class: "btn" %></li>
+      <li><%= link_to '作品一覧', artworks_path, class: "btn" %></li>
       <li><%= link_to 'お問い合わせ', contacts_path, class: "btn" %></li>
       <% if user_signed_in? %>
       <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "devise-btn" %></li> 
@@ -26,7 +26,7 @@
       <li><%= link_to '支援プロジェクトチャットルーム', donation_project_room_path(current_user.artist.donation_project.id), class: "btn" %></li>
       <li><%= link_to current_user.artist.artist_name, artist_path(current_user.artist.id), class: "btn" %></li>
       <% elsif user_signed_in? %>
-      <li><%= link_to 'アーティスト登録', new_artist_path, class: "btn" %></li>
+      <li><%= link_to 'サポートアーティスト登録', new_artist_path, class: "btn" %></li>
       <% end %>
       <% if user_signed_in? %>
       <li><%= link_to current_user.nickname, user_path(current_user.id), class: "btn" %></li> 
@@ -89,7 +89,7 @@
       <%= f.radio_button :price_lteq, '5000' %>
       5000円以下
       <br>
-      <%= f.submit 'アートワーク検索' , class: "submit-btn"%>
+      <%= f.submit '作品検索' , class: "submit-btn"%>
       </div>
     <% end %>
   </div>

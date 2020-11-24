@@ -85,3 +85,7 @@
   background-position: right 58% bottom 70%;
   min-height: 100vh;
 }
+
+.target-amount-price {
+  color: red;
+}
