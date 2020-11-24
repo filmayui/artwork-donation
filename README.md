@@ -182,3 +182,23 @@
 | donation_project_room | references | null: false, foreign_key: true |
 
 - belongs_to :donation_project_room
+
+
+# アプリケーションの概要
+
+## アプリケーション名
+
+  artwork-donation
+
+## URL
+
+
+
+## テスト用アカウント
+## 利用方法
+## 目指した課題解決
+## 洗い出した要件	
+## 実装した機能についてのGIFと説明	
+## 実装予定の機能	
+## データベース設計	
+## ローカルでの動作方法
