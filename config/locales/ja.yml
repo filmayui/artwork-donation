@@ -26,10 +26,14 @@ ja:
        image: 作品画像
      donation_project:
        project_name: プロジェクト名
-       text: プロジェクトの説明
+       text: プロジェクトの概要
        target_amount: 目標金額
        current_amount: 現在までの支援金総額
-       image: プロジェクト写真
+       image: プロジェクト画像
+     comment:
+       text: コメント
+     room_message:
+       text: ルームメッセージ
 
  activemodel:
    attributes:
