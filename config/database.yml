@@ -53,5 +53,7 @@ test:
 production:
   <<: *default
   database: artwork_donation_production
-  username: artwork_donation
-  password: <%= ENV['ARTWORK_DONATION_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
+  
