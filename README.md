@@ -202,3 +202,5 @@
 ## 実装予定の機能	
 ## データベース設計	
 ## ローカルでの動作方法
+
+54.168.92.48 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBK4zjzgj99W3C3iMbijot9vhPBvOjTdx3xDcUCHsVfxygl3i7i3nFgoPiFIsWjOljY4B9OxtEUsbp+NsGZT4vHc=
