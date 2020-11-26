@@ -80,7 +80,7 @@
 
     <%= image_tag(@donation_project.image, class: "donation-project-img") if @donation_project.image.attached? %>
 
-    <div class="project-textarea"><span class="donation-property">text: </span></div>
+    <div class="project-textarea"><span class="donation-property">text: <%= @donation_project.text %></span></div>
 
     <table class="tableArea" id="makeImg">
       <tr>
