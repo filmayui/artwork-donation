@@ -6,7 +6,7 @@
 
 <div class="room-donation-project">
   <div class="room-donation-project-image">
-    <%= image_tag @donation_project.image if @donation_project.image.attached? %>
+    <%= image_tag(@donation_project.image, class: "room-donation-project-image") if @donation_project.image.attached? %>
   </div>
   <div class="room-donation-project-property">
     <br>
