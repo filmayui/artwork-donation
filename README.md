@@ -2,10 +2,6 @@
 
   artwork-donation
 
-##　目指した課題解決
-
-
-
 ## アプリケーションの概要
 
   芸術作品の出品・購入を通じて資金を募り、国境を超えた援助・協力活動を行うアプリです。  
@@ -33,30 +29,41 @@
 
 ## テスト用アカウント
 
-
-
+  - 管理者権限ありユーザー  
+    email: admin@example.jp , password: 111bbb
+  - 管理者権限なしユーザー
+    email: abc@xyz          , password: 111ccc
 
 ## 洗い出した要件	
 
-  - 作品検索
+  - 作品検索  
     様々な特徴から作品を検索できるようにする。
-  - アーティスト検索
+  - アーティスト検索  
     名前からアーティストを検索できるようにする。
-  - ユーザーログイン
-  - ユーザー登録
-  - アーティスト登録
-  - 作品登録
-  - 支援プロジェクト登録
-  - コメント投稿
-  - ルームメッセージ投稿
-  - 購入・寄付
-  - お気に入り登録
-  - カード情報登録
-  - 購入ログ保存
+  - ユーザーログイン  
+    登録した情報でログインする。
+  - ユーザー登録  
+    サイトを使用するための基本情報を登録する。
+  - アーティスト登録  
+    支援プロジェクトへ参加し、自分の作品を登録可能にする。
+  - 作品登録  
+    ユーザーが購入できる作品を登録する。
+  - 支援プロジェクト登録  
+    管理者が新しく支援プロジェクトを登録できるようにする。
+  - コメント投稿  
+    各作品に対してのコメントを可能にする。
+  - ルームメッセージ投稿  
+    アーティスト間でコミュニティーを持てるようにする。
+  - 購入・寄付  
+    購入された際の売上金が支援プロジェクトへ寄付されるようにする。
+  - お気に入り登録  
+    自分の気になる作品を後で参照しやすくする。
+  - カード情報登録  
+    登録することで作品購入を可能にする。
+  - 購入ログ保存  
+    購入情報を個別で保存し、ログとして残す。
 
-
-## データベース設計	
-
+## E-R図
 
 
 
@@ -141,7 +148,7 @@
 - belongs_to :user
 - belongs_to :artwork
 
-# orders テーブル
+## orders テーブル
 
 | Column                 | Type       | Options                        |
 | ---------------------- | ---------- | ------------------------------ |
@@ -231,6 +238,8 @@
 | artist                | references | null: false, foreign_key: true |
 | donation_project_room | references | null: false, foreign_key: true |
 
+### Association
+
 - belongs_to :artist
 - belongs_to :donation_project_room
 
@@ -243,7 +252,8 @@
 | donation_price        | integer    |                                |
 | donation_project_room | references | null: false, foreign_key: true |
 
+### Association
+
 - belongs_to :donation_project_room
 
 
-54.168.92.48 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBK4zjzgj99W3C3iMbijot9vhPBvOjTdx3xDcUCHsVfxygl3i7i3nFgoPiFIsWjOljY4B9OxtEUsbp+NsGZT4vHc=
