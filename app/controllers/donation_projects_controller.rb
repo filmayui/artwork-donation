@@ -26,7 +26,7 @@ class DonationProjectsController < ApplicationController
     if @donation_project.valid?
       @donation_project.save
 
-      
+      #新規プロジェクトに対するルームを作成
       donation_project_room = DonationProjectRoom.new(donation_project_id: @donation_project.id)
       donation_project_room.save
 
