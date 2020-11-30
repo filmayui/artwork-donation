@@ -29,12 +29,17 @@
 
 ## テスト用アカウント
 
-  - BASIC認証ユーザー名&パスワード  
-    admin , 2222
+  - BASIC認証    
+    ユーザー名: admin  
+    パスワード: 2222  
+  - クレジットカード情報  
+    カード番号：4242424242424242  
+    カード期限：Mon Mar 23 2020 00:00:00 GMT+0900 (日本標準時)  
+    カードセキュリティコード：123  
   - 管理者権限ありユーザー  
-    email: admin@example.jp , password: 111bbb
+    email: admin@example.jp , password: 111bbb  
   - 管理者権限なしユーザー  
-    email: abc@xyz          , password: 111ccc
+    email: abc@xyz          , password: 111ccc  
 
 ## 洗い出した要件	
 
