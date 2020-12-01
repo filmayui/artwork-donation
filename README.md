@@ -72,7 +72,7 @@
 
 ## E-R図
 
-  <object type="image/svg+xml" data="images/artwork-donation.svg" style="width: auto; max-width: 100%;"></object>
+  <object type="image/svg+xml" data="artwork-donation.svg" style="width: auto; max-width: 100%;"></object>
 
 # テーブル設計
 
