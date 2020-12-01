@@ -72,7 +72,8 @@
 
 ## E-R図
 
-  <object type="image/svg+xml" data="artwork-donation.svg" style="width: auto; max-width: 100%;"></object>
+  https://gyazo.com/d440a8a30d568fc8f07ed36e08600f41
+  https://gyazo.com/51d8a274bd0da63f89fd5f1837f8c854
 
 # テーブル設計
 
