@@ -72,7 +72,7 @@
 
 ## E-R図
 
-  artwork-donation.png
+  <img src="images/artwork-donation.png">
 
 # テーブル設計
 
