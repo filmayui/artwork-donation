@@ -32,5 +32,7 @@ Rails.application.routes.draw do
   resources :donation_project_rooms, only: [:show] do
     resources :room_messages, only: [:create]
   end
+
+  mount ActionCable.server => '/cable' #追加
   
 end

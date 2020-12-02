@@ -110,7 +110,7 @@ Rails.application.configure do
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
 
-  ActionCable.server.config.disable_request_forgery_protection = true
-  config.action_cable.url = 'ws://54.168.92.48/cable'
-  config.action_cable.allowed_request_origins = [ 'http://54.168.92.48' ]   
+  ActionCable.server.config.disable_request_forgery_protection = true #追加
+  config.action_cable.url = 'ws://54.168.92.48/cable' #追加
+  config.action_cable.allowed_request_origins = [ 'http://54.168.92.48' ] #追加
 end
