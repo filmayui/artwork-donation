@@ -17,7 +17,7 @@ class DonationProjectRoomsController < ApplicationController
     @room_message = RoomMessage.new
 
     #支援プロジェクトルームのメッセージを全て取得
-    @room_messages = RoomMessage.where(donation_project_room_id: @donation_project_room.id)
+    @room_messages = RoomMessage.includes(:artist).where(donation_project_room_id: @donation_project_room.id)
 
     #支援プロジェクトルームに紐づく購入ログを全て取得
     @sale_logs = SaleLog.where(donation_project_room_id: @donation_project_room.id)
